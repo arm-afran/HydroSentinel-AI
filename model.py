@@ -86,7 +86,7 @@ class SpatiotemporalUNetConvLSTM(nn.Module):
         in_channels: int,
         out_channels: int,
         features: list[int] = [64, 128, 256],
-        lstm_hidden: list[int] = [512, 512],
+        lstm_hidden: list[int] = [256, 256],
     ):
         super().__init__()
         self.enc1 = DoubleConv3D(in_channels, features[0])
@@ -101,7 +101,7 @@ class SpatiotemporalUNetConvLSTM(nn.Module):
         self.conv_lstm = ConvLSTM(in_channels=features[2], hidden_dims=lstm_hidden)
 
         self.up3 = nn.ConvTranspose3d(
-            lstm_hidden[-1], features[2], kernel_size=(1, 2, 2), stride=(1, 2, 2)
+            256, features[2], kernel_size=(1, 2, 2), stride=(1, 2, 2)
         )
         self.dec3 = DoubleConv3D(features[2] * 2, features[2])
 
