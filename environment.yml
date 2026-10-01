@@ -1,0 +1,12 @@
+name: hydrosentinel
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - rasterio
+  - numpy
+  - pytorch
+  - torchvision
+  - torchaudio
+  - streamlit
