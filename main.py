@@ -29,11 +29,14 @@ def run_pipeline(
         profile = src.profile.copy()
         ndvi_data = src.read(1)
 
-    input_tensor = torch.from_numpy(ndvi_data).float().unsqueeze(0).unsqueeze(0).unsqueeze(2)
-    input_tensor = input_tensor.repeat(1, 1, time_steps, 1, 1)
+    input_tensor = torch.from_numpy(ndvi_data).float().unsqueeze(0).unsqueeze(0).unsqueeze(-1)
+    input_tensor = input_tensor.permute(0, 2, 1, 3, 4).repeat(1, time_steps, 1, 1, 1)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = SpatiotemporalUNetConvLSTM(in_channels=1, out_channels=1).to(device)
+   import os
+if os.path.exists("models/best_model.pth"):
+    model.load_state_dict(torch.load("models/best_model.pth", map_location=device))
     model.eval()
 
     with torch.no_grad():
