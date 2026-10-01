@@ -48,7 +48,7 @@ Execute the following shell commands to provision the environment and install de
 
 ```bash
 # Clone the repository
-git clone [https://github.com/your-org/HydroSentinel-AI.git](https://github.com/your-org/HydroSentinel-AI.git)
+git clone https://github.com/arm-afran/HydroSentinel-AI.git https://github.com/arm-afran/HydroSentinel-AI.git
 cd HydroSentinel-AI
 
 # Create and activate a virtual environment
@@ -57,7 +57,7 @@ source env/bin/activate
 
 # Upgrade pip and install core PyTorch components
 pip install --upgrade pip
-pip install torch torchvision torchaudio --index-url [https://download.pytorch.org/whl/cu118](https://download.pytorch.org/whl/cu118)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 https://download.pytorch.org/whl/cu118
 
 # Install pipeline dependencies
 pip install -r requirements.txt
