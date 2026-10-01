@@ -34,9 +34,9 @@ def run_pipeline(
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = SpatiotemporalUNetConvLSTM(in_channels=1, out_channels=1).to(device)
-   import os
-if os.path.exists("models/best_model.pth"):
-    model.load_state_dict(torch.load("models/best_model.pth", map_location=device))
+    import os
+    if os.path.exists("models/best_model.pth"):
+        model.load_state_dict(torch.load("models/best_model.pth", map_location=device))
     model.eval()
 
     with torch.no_grad():
