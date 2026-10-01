@@ -46,7 +46,6 @@ $$Risk=Hazard \times Exposure \times Vulnerability$$
 ### Environment Setup
 Execute the following shell commands to provision the environment and install dependencies:
 
-```bash
 # Clone the repository
 git clone https://github.com/arm-afran/HydroSentinel-AI.git https://github.com/arm-afran/HydroSentinel-AI.git
 cd HydroSentinel-AI
